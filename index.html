@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zero // Portifólio</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Consolas, Monaco, 'Courier New', monospace;
+      background: #050505;
+      color: #d8ffd8;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(rgba(57,255,20,0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(57,255,20,0.05) 1px, transparent 1px);
+      background-size: 26px 26px;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .scanline::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.03),
+        rgba(255,255,255,0.03) 1px,
+        transparent 2px,
+        transparent 4px
+      );
+      pointer-events: none;
+      z-index: 1;
+    }
+    .container {
+      position: relative;
+      z-index: 2;
+      width: min(1100px, 92%);
+      margin: 0 auto;
+    }
+    header {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid rgba(57,255,20,0.25);
+    }
+    .hero {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    .tag {
+      display: inline-block;
+      color: #39ff14;
+      border: 1px solid rgba(57,255,20,0.4);
+      padding: 0.35rem 0.7rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.85rem;
+    }
+    h1 {
+      font-size: clamp(2.3rem, 5vw, 5rem);
+      color: #39ff14;
+      text-shadow: 0 0 8px rgba(57,255,20,0.45);
+      margin-bottom: 1rem;
+    }
+    .subtitle {
+      color: #c7ffc7;
+      max-width: 650px;
+      margin-bottom: 1.5rem;
+      font-size: 1.05rem;
+    }
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+    .btn {
+      text-decoration: none;
+      color: #050505;
+      background: #39ff14;
+      padding: 0.9rem 1.2rem;
+      font-weight: bold;
+      border: 1px solid #39ff14;
+      transition: 0.2s ease;
+      box-shadow: 0 0 12px rgba(57,255,20,0.25);
+    }
+    .btn.secondary {
+      background: transparent;
+      color: #39ff14;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 18px rgba(57,255,20,0.4);
+    }
+    .terminal {
+      background: rgba(0,0,0,0.75);
+      border: 1px solid rgba(57,255,20,0.25);
+      padding: 1rem;
+      box-shadow: 0 0 20px rgba(57,255,20,0.08);
+    }
+    .terminal-top {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .dot { width: 12px; height: 12px; border-radius: 50%; background: #39ff14; opacity: 0.7; }
+    .line { margin: 0.45rem 0; color: #9dff9d; }
+    section {
+      padding: 5rem 0;
+      border-bottom: 1px solid rgba(57,255,20,0.15);
+    }
+    h2 {
+      font-size: 1.8rem;
+      color: #39ff14;
+      margin-bottom: 1.3rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+    .card {
+      background: rgba(0,0,0,0.6);
+      border: 1px solid rgba(57,255,20,0.2);
+      padding: 1.2rem;
+      transition: 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(57,255,20,0.5);
+      box-shadow: 0 0 18px rgba(57,255,20,0.08);
+    }
+    .card h3 {
+      color: #39ff14;
+      margin-bottom: 0.5rem;
+    }
+    .projects .card a, footer a {
+      color: #39ff14;
+      text-decoration: none;
+    }
+    .about p, .projects p, .contact p, .skills p {
+      color: #d5f7d5;
+      max-width: 800px;
+    }
+    ul.clean {
+      list-style: none;
+      display: grid;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    ul.clean li::before {
+      content: '> ';
+      color: #39ff14;
+    }
+    footer {
+      padding: 2rem 0 4rem;
+      color: #8dd88d;
+      text-align: center;
+    }
+    @media (max-width: 850px) {
+      .hero { grid-template-columns: 1fr; }
+      header { min-height: auto; padding: 5rem 0; }
+    }
+  </style>
+</head>
+<body class="scanline">
+  <header>
+    <div class="container hero">
+      <div>
+        <div class="tag">[ online ] zero@portfolio</div>
+        <h1>ZERO</h1>
+        <p class="subtitle">
+          Sou apenas um hacker, a cada dia evoluindo na carreira.
+        </p>
+        <div class="buttons">
+          <a class="btn" href="#projects">Ver projetos</a>
+          <a class="btn secondary" href="#contact">Contato</a>
+        </div>
+      </div>
+      <div class="terminal">
+        <div class="terminal-top">
+          <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        </div>
+        <div class="line">$ whoami</div>
+        <div class="line">Zero // hacker // estudante // criador</div>
+        <div class="line">$ ls skills</div>
+        <div class="line">segurança • tecnologia • eletrônica • automação</div>
+        <div class="line">$ cat mission.txt</div>
+        <div class="line">compartilhar conhecimento e construir coisas interessantes</div>
+      </div>
+    </div>
+  </header>
+
+  <section class="about">
+    <div class="container">
+      <h2>Sobre</h2>
+      <h3>História</h3>
+      <p>
+        Sempre gostei de fazer projetos, de fliperama com raspberry pi aos 13 por hobbie, que entrou para feira em universidade, até projetos acadêmicos sérios com certificados profissionais.
+      </p>
+
+      <p>
+        Aos 14 anos, passei em 1º lugar para eletrotécnica em Federal, e paralelamente estudava programação de computadores.
+      </p>
+
+      <p>
+        Aos 17 entrei direto para faculdade Engenharia Eletricista, e paralelamente fiz Ciências da Computação.
+      </p>
+      <p>
+
+      </p>
+      <ul class="clean">
+        <li>Sou um hacker raíz, entendo profundamente como funciona a eletrônica por trás do hardware, a programação por trás do software.</li>
+        <li>Não sou mesmo dessa onda de lammers que acham que hacking é somente "web-pentest ofensivo, com ferramentas prontas"</li>
+        <li>Estou sempre pronto a trabalhar.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="skills">
+    <div class="container">
+      <h2>Habilidades</h2>
+      <div class="grid">
+        <div class="card"><h3>Linux</h3><p>Customização, terminal, automação e ambiente hacker minimalista.</p></div>
+        <div class="card"><h3>Segurança</h3><p>Estudos, laboratórios, análise e exploração ética de sistemas.</p></div>
+        <div class="card"><h3>Eletrônica</h3><p>Integração entre hardware, lógica digital e computação.</p></div>
+        <div class="card"><h3>Projetos</h3><p>Organização de ideias, protótipos e documentação pessoal.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="projects">
+    <div class="container">
+      <h2>Projetos</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Arch</h3>
+          <p>Uso arch linux como desktop principal, no meu notebook. E diferente dos iniciantes, consigo ter boa retrocompatibilidade assim como Windows</p>
+          <a href="#">Abrir</a>
+        </div>
+        <div class="card">
+          <h3>Servidor</h3>
+          <p>Tenho um servidor Raspberry Pi para diversas automações, IOT, sociais, filtro de anúncios e vírus, VPN geral, Mineração de bitcoins.</p>
+          <a href="#">Abrir</a>
+        </div>
+        <div class="card">
+          <h3>Oficina</h3>
+          <p>Tenho uma oficina com diversos embarcados onde construo vários dipositivos hacker, e mais.</p>
+          <a href="#">Abrir</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2>Contato</h2>
+      <p>Email: otv.dslt@gmail.com</p>
+      <p>GitHub: github.com/0tvdslt</p>
+      <p>LinkedIn: linkedin.com/in/ot%C3%A1vio-dias-leite-976027366/</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Zero // themed in green-on-black terminal aesthetic</p>
+    </div>
+  </footer>
+</body>
+</html>
